@@ -1,13 +1,19 @@
-name: 'Wait'
-description: 'Wait a designated number of milliseconds'
-inputs:
-  milliseconds:  # id of input
-    description: 'number of milliseconds to wait'
-    required: true
-    default: '1000'
+name: "mroot/Replace text in file(s)"
+description: "Replace Strings w/in File(s)"
+author: "amrut057"
 outputs:
-  time: # output will be available to future steps
-    description: 'The current time after waiting'
+  replaceCount:
+    description: The number of times the string was replaced.
+inputs:
+  searchText:
+    required: true
+    description: "The text to be replaced."
+  replaceText:
+    required: true
+    description: "The text to replace with."
+  files:
+    required: true
+    description: "Glob expression, file name, or array of glob/file name"
 runs:
-  using: 'node16'
-  main: 'dist/index.js'
+  using: "node12"
+  main: "dist/index.js"
